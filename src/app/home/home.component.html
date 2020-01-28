@@ -1,0 +1,97 @@
+
+ <!-- Swiper -->
+ <div class="swiper-container">
+    <a class="get-started primary-btn2 mt-20 text-uppercase"  routerLink="/services">Get Started<span class="lnr lnr-arrow-right"></span></a>
+<div class="parallax-bg" style="background-image:url(assets/img/medical2.png);opacity: 0.6;" data-swiper-parallax="-23%"></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="title" data-swiper-parallax="-300"><h1 class="text-uppercase text-home">
+    Welcome To Medical.
+</h1></div>
+<div class="text" data-swiper-parallax="-100">
+    <p>Medical is a Medical website and medical metasearch engine for lodging appointement. It is owned and operated by and is the primary revenue source of Morocco.</p>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0">Slider 2</div>
+<div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+<div class="text" data-swiper-parallax="-100">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor.</p>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="title" data-swiper-parallax="-300">Slide 3</div>
+<div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+<div class="text" data-swiper-parallax="-100">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor.</p>
+  
+</div>
+</div>
+</div>
+<!-- Add Pagination -->
+<div class="swiper-pagination swiper-pagination-white"></div>
+<!-- Add Navigation -->
+<div class="swiper-button-prev swiper-button-white"></div>
+<div class="swiper-button-next swiper-button-white"></div>
+</div>
+<script>
+  var interleaveOffset = 0.5;
+
+var swiperOptions = {
+  loop: true,
+  speed: 1000,
+  grabCursor: true,
+  watchSlidesProgress: true,
+  mousewheelControl: true,
+  keyboardControl: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  on: {
+    progress: function() {
+      var swiper = this;
+      for (var i = 0; i < swiper.slides.length; i++) {
+        var slideProgress = swiper.slides[i].progress;
+        var innerOffset = swiper.width * interleaveOffset;
+        var innerTranslate = slideProgress * innerOffset;
+        swiper.slides[i].querySelector(".slide-inner").style.transform =
+          "translate3d(" + innerTranslate + "px, 0, 0)";
+      }      
+    },
+    touchStart: function() {
+      var swiper = this;
+      for (var i = 0; i < swiper.slides.length; i++) {
+        swiper.slides[i].style.transition = "";
+      }
+    },
+    setTransition: function(speed) {
+      var swiper = this;
+      for (var i = 0; i < swiper.slides.length; i++) {
+        swiper.slides[i].style.transition = speed + "ms";
+        swiper.slides[i].querySelector(".slide-inner").style.transition =
+          speed + "ms";
+      }
+    }
+  }
+};
+
+var swiper = new Swiper(".swiper-container", swiperOptions);
+
+// document.querySelector('[data-toggle]').addEventListener('click', function(){
+//   if (swiper.realIndex == 0) {
+//     swiper.slideTo(swiper.slides.length - 1);
+//   } else {
+//     swiper.slideTo(0);
+//   }
+// });
+
+// function logIndex () {
+//   requestAnimationFrame(logIndex);
+//   console.log(swiper.realIndex);
+// }
+// logIndex();
+
+</script>
+
+

@@ -1,0 +1,174 @@
+
+            <div class="limiter">
+                <div class="container-login100">
+                  <div class="wrap-login100">
+                    <form [formGroup]="myngForm" (ngSubmit)="onSubmit()" class="signin-form login100-form validate-form">
+                      <!-- ;$event.preventDefault(); -->
+                        <div>
+                            <div class="text-center">
+                                <img style="width: 60px;" src="assets/img/sign-profile.png" class="rounded" alt="">
+                            </div>
+                             <span class="login100-form-title">
+                                Member Sign Up
+                             </span>
+                        </div>
+                      <div class="form-row">
+                      <!--First Name Input-->
+                      <div class="col wrap-input100 validate-input" >
+                         <input class="input100" type="text" formControlName="firstname" name="firstname" placeholder="First Name">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                      <!--Last Name Input-->
+                      <div class="col wrap-input100 validate-input" >
+                         <input class="input100" type="text" formControlName="lastname" name="lastname" placeholder="Last Name">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                    </div>
+                      <!--Email Input-->
+                      <div class="wrap-input100 validate-input" >
+                         <input class="input100" type="text" formControlName="email" name="email" placeholder="Email">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-envelope" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                      <!--Phone Number Input-->
+                      <div class="wrap-input100 validate-input" >
+                         <input class="input100" type="text" name="number" formControlName="number" placeholder="Phone Number">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-mobile" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                     <!--Password Input-->
+                      <div class="wrap-input100 validate-input" >
+                         <input class="input100" type="password" formControlName="password" name="password" placeholder="Password">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-lock" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                      <!--RePassword Input-->
+                      <div class="wrap-input100 validate-input" >
+                         <input class="input100" type="password" name="repassword" placeholder="Re-Password">
+                         <span class="focus-input100"></span>
+                         <span class="symbol-input100">
+                          <i class="fa fa-lock" aria-hidden="true"></i>
+                         </span>
+                      </div>
+                      <!--Radio Buttons of Gender-->
+                      <div class="form-row mb-10 justify-content-center">
+                         <div class="form-check" style="margin-right: 40px;">
+                             <input value="Male" style="position: inherit !important;" class="form-check-input" type="radio" formControlName="gender" name="gender" id="Male" value="Male" checked>
+                               <label class="form-check-label" for="Male">
+                                Male
+                               </label>
+                         </div>
+                         <div class="form-check">
+                             <input value="Famale" style="position: inherit !important;" class="form-check-input" type="radio" formControlName="gender" name="gender" id="Female" value="Female" checked>
+                               <label class="form-check-label" for="exampleRadios2">
+                                Female
+                               </label>
+                         </div>
+                    </div>
+                    <!-- Import Inputs-->
+                    <div id="second" class="mb-30">
+                        <!-- <input type="file" class="form-control-file mb-10"> -->
+                        <!--Photo Input-->
+                        <div class="wrap-input100 validate-input" >
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label style="padding: 5px !important;" class="custom-file-label" for="customFile">
+                                    Choose your profile photo
+                                </label>
+                            </div>
+                        </div>
+                         <!--CIN Input-->
+                          <div class="wrap-input100 validate-input" >
+                             <input class="input100" type="text" formControlName="cin" name="cin" placeholder="CIN">
+                             <span class="focus-input100"></span>
+                             <span class="symbol-input100">
+                              <i class="fa fa-id-card" aria-hidden="true"></i>
+                             </span>
+                          </div>
+                          <!--BirthDate Input-->
+                          <div class="wrap-input100 validate-input" >
+                             <input class="input100" type="date" formControlName="date_naissence" name="birthdate" placeholder="Birth Date">
+                             <span class="focus-input100"></span>
+                             <span class="symbol-input100">
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                             </span>
+                          </div>
+                          <!--Address Input-->
+                          <div class="wrap-input100 validate-input" >
+                            <input class="input100" type="text" formControlName="address" name="address" placeholder="Address">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <!--assurance Input-->
+                            <div class="wrap-input100 validate-input" >
+                                <input class="input100" type="text" formControlName="assurance" name="assurance" placeholder="assurance">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                </span>
+                              </div>
+
+                              <!-- <div class="wrap-input100 validate-input" data-validate = "Insurance is required : 23 Rue Ikbar, Beni Mellal">
+                                <input class="input100" type="text" name="insurance" placeholder="Insurance">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                </span>
+                              </div> -->
+
+                              <!--Radio Buttons Type of User-->
+                              <div class="form-row mb-10 justify-content-center">
+                                  <div class="form-check" style="margin-right: 40px;">
+                                     <input style="position: inherit !important;" class="form-check-input" type="radio" formControlName="type" name="type" id="Patient" value="Patient" checked>
+                                       <label class="form-check-label" for="Patient">
+                                         Patient
+                                       </label>
+                                  </div>
+                                  <div class="form-check">
+                                     <input style="position: inherit !important;" class="form-check-input" type="radio" formControlName="type" name="type" id="Doctor" value="Doctor" checked>
+                                       <label class="form-check-label" for="Doctor">
+                                         Doctor
+                                       </label>
+                                  </div>
+                            </div>
+                </div> <!--End of Import Inputs-->
+
+
+
+                    <!-- <div class="container-login100-form-btn">
+                      <button type="button" class="login100-form-btn" id="second-interface">Next</button>
+                    </div>-->
+                    <!--Button Sign up-->
+                      <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                          Sign Up
+                        </button>
+                      </div>
+
+                      <!--Reset Password link-->
+                      <div class="text-center p-t-30">
+                        <a class="txt2" routerLink="/login">
+                          Login to your Account
+                          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    </form  >
+
+                  </div>
+                </div>
+              </div>
+

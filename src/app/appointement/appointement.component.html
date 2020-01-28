@@ -1,0 +1,91 @@
+<!-- reder-vous -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="myForm">
+
+            <div class="form-group">
+            <input formControlName="identityNo" type="text" value="{{this.ID}}"><!-- id -->
+          </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date</label>
+                <input type="date" formControlName="reservationTimeStamp" class="form-control" id="exampleInputDate1" aria-describedby="Datehelp" placeholder="Enter La Date de Rendez-vous">
+                <small id="DateHelp" class="form-text text-muted">Vous devez entrer une date correcte.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea formControlName="subject" class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow-y: scroll;"></textarea>
+              </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addrendervous()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--      end reder-vous           -->
+
+
+
+
+
+<!--        container       -->
+            <!--    start text-->
+            <section class="banner-area relative" id="service">
+                <div class="stl-div1 container p-3 my-3 border align-items-center justify-content-center">
+                    Here you can search for any doctors or Medical Centers.
+                </div>
+            </section>
+
+            <!--    end text-->
+
+            <!-- Start search Area -->
+            <section class="banner-area relative" id="service">
+                <div class="stl-div2 container p-3 my-3 border align-items-center justify-content-center">
+                        <form method="GET" action="#" class="form-inline align-items-center justify-content-center">
+                                <input (input)="remplir()" [(ngModel)]='nom_cabinet' name="center" placeholder="What do you want?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'What do you want?'" class="form-control ml-10 mt-30 mb-30" required="" style="width: 600px !important;" type="text" required>
+
+                                <input name="position" placeholder="Enter your city" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your city'" class="form-control ml-10 mt-30 mb-30" required="" type="text" required>
+                                <button (click)="search()" type="button" class="btn btn-outline-light ml-10 mt-30 mb-30">Search</button>
+                        </form>
+                    </div>
+            </section>
+            <!-- End search Area -->
+
+
+
+
+<!--        start container       -->
+<div class="invalid-feedback ml-10 mb-10">
+    Please enter a valid information.
+</div>
+
+<div id="div_aff" class="info container " id="info">
+    <div *ngFor="let item of list; index as i" id="result-1" class="cabinet row fullscreen align-items-center justify-content-center mb-10">
+        <div  class="container col-md-8">
+            <h2>
+                <a class="badge badge-warning">{{i+1}}</a>
+                <a routerLink="/profile">{{item.name}}</a>
+            </h2>
+                <h3 id="cite">city : {{item.countryHealthId}}</h3>
+                <h3 id="remark">remark :{{item.remark}}</h3>
+
+          </div>
+        <div class="container col-md-4">
+            <button (click)="varrr(item.id)" type="button" class="btn btn-primary mb-10" style="width: 100% !important;" data-toggle="modal" data-target="#exampleModalCenter">Rendez-vous</button>
+        </div>
+    </div>
+</div>
+

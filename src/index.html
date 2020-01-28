@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GestionMedicaux</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--Style Call-->
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href=  "assets/css/jquery-ui.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/linearicons.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/swiper.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--End Style Call-->
+</head>
+<body>
+
+  <app-root>
+    <div style="position: absolute;left:50%;top: 50%; transform: translate(-50%,-50%);">
+      <div class="spinner-border text-primary align-items-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </app-root>
+
+  <script src="assets/js/swiper.min.js"></script>
+  <script src="assets/js/swiper.js"></script>
+  <script src="assets/js/jquery-3.4.1.js"></script>
+  <script src="assets/js/jquery-ui.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    //slide zoom
+var swiperZoomAnim = function() {
+  var el = document.querySelector('.sample-zoom .swiper-slide-active p');
+  var anim = document.querySelectorAll('.is-anim');
+
+  for (var i = 0; i < anim.length; i++ ) {
+    anim[i].classList.remove('is-anim');
+  }
+  el.classList.add('is-anim');
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  var swiperZoom = new Swiper('.sample-zoom .swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    speed: 0.1,
+    autoplay: 4500,
+    effect: 'fade',
+    loop: true,
+    onInit: function(i) {
+      swiperZoomAnim();
+    },
+    onSlideChangeEnd: function(i) {
+      swiperZoomAnim();
+    }
+  });
+}, false);
+  </script>
+  <!--Script Call-->
+   <!-- Initialize Swiper -->
+   <!--End Script Call-->
+
+
+</body>
+
+
+</html>
