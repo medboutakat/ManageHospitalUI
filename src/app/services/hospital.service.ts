@@ -3,11 +3,13 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { ROOT_URL } from '../models/config';
 import { Hospital } from '../models/hospital';
+import { Contact } from '../models/Contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HospitalService {
+
 
   url = ROOT_URL;
   id: any;
@@ -24,7 +26,6 @@ export class HospitalService {
 
 
 
-
 //Post Appointment statut
   posthospital(hospital:Hospital){
     const headers = new HttpHeaders().set('content-type', 'application/json');
@@ -33,7 +34,7 @@ export class HospitalService {
       countryHealthId: hospital.countryHealthId,
       remark: hospital.remark,
       hospitalCategoryId:hospital.hospitalCategoryId,
-      contactId:hospital.contactId,
+      contactId:Contact.id,
       identityNo:hospital.identityNo
     }
     return this.http.post<HospitalService>(this.url+"Hospital", body, { headers })

@@ -9,4 +9,5 @@ export class Contact {
   adress1: string;
   adress2: string;
   other: string;
+  static id: any;
 }

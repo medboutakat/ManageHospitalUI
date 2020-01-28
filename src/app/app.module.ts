@@ -20,6 +20,8 @@ import { GridComponent } from './grid/grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HospitalCategoryService } from './services/hospitalCategory.service';
 import { ContactService } from './services/contact.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule, MatSlideToggle} from '@angular/material'
 
 
 
@@ -45,8 +47,10 @@ import { ContactService } from './services/contact.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AgGridModule.withComponents([])
-
+    AgGridModule.withComponents([]),
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule,MatFormFieldModule,MatButtonModule
   ],
   providers: [
     userservice,HospitalCategoryService,ContactService

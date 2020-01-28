@@ -13,9 +13,7 @@
             <div class="form-group">
               <input type="text" formControlName="name" placeholder="name">
               </div>
-              <div class="form-group">
-                <input type="text" formControlName="countryHealthId" placeholder="cite">
-              </div>
+
               <div class="form-group">
                 <input type="text" formControlName="remark" placeholder="remark">
               </div>
@@ -26,11 +24,28 @@
                 </select>
                </div>
 
-               <div class="form-group">
+               <!-- <div class="form-group">
                 <select class="form-group"   formControlName="contactId">
                    <option *ngFor="let itemcontact of contacts" [value]="itemcontact.id">{{itemcontact.email}}</option>
                 </select>
-               </div>
+               </div> -->
+
+               <!-- contact email -->
+               <div class="form-group">
+                <input type="email" formControlName="email" placeholder="email">
+              </div>
+              <!-- contact phone -->
+              <div class="form-group">
+                <input type="text" formControlName="phone1" placeholder="phone1">
+              </div>
+
+              <!-- city -->
+              <div class="form-group">
+                <select class="form-group" formControlName="countryHealthId">
+                   <option *ngFor="let item of city" [value]="item.id">{{item.name}}</option>
+                </select>
+              </div>
+
           </form>
       </div>
       <div class="modal-footer">
@@ -99,8 +114,10 @@
                 <input type="text" formControlName="name" placeholder="name">
                 </div>
                 <div class="form-group">
-                  <input type="text" formControlName="countryHealthId" placeholder="cite">
-                </div>
+                  <select class="form-group" formControlName="countryHealthId">
+                     <option *ngFor="let item of city" [value]="item.id">{{item.name}}</option>
+                  </select>
+                 </div>
                 <div class="form-group">
                   <input type="text" formControlName="remark" placeholder="remark">
                 </div>
