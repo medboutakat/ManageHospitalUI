@@ -15,6 +15,7 @@ import { Contact } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
 import { City } from '../models/city';
 import { CityService } from '../services/city.service';
+import * as uuid from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -103,16 +104,17 @@ this.contacts=tmp;
  addappointement() {
       var hospital = this.myForm.value as Hospital
         console.log('form : ',hospital)
-        hospital.contact=contact;
+        console.log('form : ',this.contacts)
+        // hospital.contact.id=uuid.v4();
         this.service.posthospital(hospital).subscribe(res=>{
           this.loadData()
           console.log('res : ',res)
         })
-        var contact = this.myForm.value as Contact
-        console.log('form : ',contact)
-        this.servicecontact.addContact(contact).subscribe(res=>{
-          console.log('res : ',res)
-        })
+        // var contact = this.myForm.value as Contact
+        // console.log('form : ',contact)
+        // this.servicecontact.addContact(contact).subscribe(res=>{
+        //   console.log('res : ',res)
+        // })
 }
 /******************selection******************************* */
 tes:string;

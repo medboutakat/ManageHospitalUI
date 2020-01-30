@@ -1,3 +1,5 @@
+import { Contact } from './Contact';
+
 export class Hospital {
   id: string;
   countryHealthId: string;
@@ -8,5 +10,6 @@ export class Hospital {
   contactId: string;
   assutanceId: any;
   identityNo: any;
+  contact :Contact;
 }
 

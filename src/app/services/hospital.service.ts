@@ -5,6 +5,8 @@ import { ROOT_URL } from '../models/config';
 import { Hospital } from '../models/hospital';
 import { Contact } from '../models/Contact';
 
+import * as uuid from 'uuid';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,14 +30,19 @@ export class HospitalService {
 
 //Post Appointment statut
   posthospital(hospital:Hospital){
+
+
     const headers = new HttpHeaders().set('content-type', 'application/json');
     var body = {
+      // id:uuid.v4(),
       name: hospital.name,
       countryHealthId: hospital.countryHealthId,
       remark: hospital.remark,
-      hospitalCategoryId:hospital.hospitalCategoryId,
-      contactId:Contact.id,
-      identityNo:hospital.identityNo
+      // hospitalCategoryId: uuid.v4(),
+      hospitalCategoryId: hospital.hospitalCategoryId,
+      // contactId:Contact.id,
+      identityNo:hospital.identityNo,
+      Contact:hospital.contact,
     }
     return this.http.post<HospitalService>(this.url+"Hospital", body, { headers })
   }
