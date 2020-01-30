@@ -55,13 +55,41 @@
             <section class="banner-area relative" id="service">
                 <div class="stl-div2 container p-3 my-3 border align-items-center justify-content-center">
                         <form method="GET" action="#" class="form-inline align-items-center justify-content-center">
-                                <input (input)="remplir()" [(ngModel)]='nom_cabinet' name="center" placeholder="What do you want?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'What do you want?'" class="form-control ml-10 mt-30 mb-30" required="" style="width: 600px !important;" type="text" required>
+                              <input  (input)="remplir()" [(ngModel)]='nom_cabinet' name="center" placeholder="What do you want?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'What do you want?'" class="form-control ml-10 mt-30 mb-30" required="" style="width: 600px !important;" type="text" required>
 
-                                <input name="position" placeholder="Enter your city" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your city'" class="form-control ml-10 mt-30 mb-30" required="" type="text" required>
-                                <button (click)="search()" type="button" class="btn btn-outline-light ml-10 mt-30 mb-30">Search</button>
+
+                              <!-- <mat-form-field class="example-full-width">
+                                <input type="text" matInput aria-label="City" [matAutocomplete]="auto" placeholder="Enter your city" type="text" [formControl]="stateCtrl">
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                  <mat-option *ngFor="let city of citys" [value]="city">
+                                    <span>{{city.name}}</span>
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field> -->
+
+
+                              <button mat-flat-button (click)="search()" type="button" class="btn btn-outline-light ml-10 mt-30 mb-30">Search</button>
                         </form>
+
+
+
+                        <form class="example-form">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="State" aria-label="City" [matAutocomplete]="auto" [formControl]="stateCtrl">
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let city of citys" [value]="city.name">
+                                <span>{{city.name}}</span>
+                              </mat-option>
+                            </mat-autocomplete>
+                          </mat-form-field>
+
+                          <br>
+                        </form>
+
+
                     </div>
             </section>
+
             <!-- End search Area -->
 
 

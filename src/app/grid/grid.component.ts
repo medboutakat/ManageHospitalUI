@@ -13,6 +13,9 @@ import { HospitalCategoryService } from '../services/hospitalCategory.service';
 import { HospitalCategory } from '../models/HospitalCategory';
 import { Contact } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
+import { City } from '../models/city';
+import { CityService } from '../services/city.service';
+import * as uuid from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +28,7 @@ import { ContactService } from '../services/contact.service';
 })
 export class GridComponent implements OnInit {
 url="http://144.91.76.98:5002/api/Hospital";
+urlcontact="http://144.91.76.98:5002/api/Contact";
 
 
 
@@ -35,17 +39,12 @@ myForm = new FormGroup({
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-  contactId:new FormControl(''),
-  contact: new FormGroup({ 
-    email : new FormControl(''),
-    phone1 : new FormControl(''),
-    phone2 : new FormControl(''),
-  })
 })
   name: string;
 
   constructor(
     private service:HospitalService,
+    private serviceCity:CityService,
     private serviceCate:HospitalCategoryService,
     private servicecontact:ContactService,
     private http:HttpClient
@@ -75,18 +74,24 @@ myForm = new FormGroup({
  listo:Hospital[];
  cats:HospitalCategory[];
  contacts:Contact[];
+ city:City[];
 
 loadData(){
 this.service.gethopital().subscribe((tmp)=>{
   this.listo=tmp;
 })
 
-/************     remplir drop down par categorie   ********* */
+/************     remplir 1- drop down par city   ********* */
+this.serviceCity.getCity().subscribe((tmp)=>{
+  this.city=tmp;
+})
+
+/************     remplir 2- drop down par categorie   ********* */
 this.serviceCate.getHospitalCategorie().subscribe((tmp)=>{
   this.cats=tmp;
 })
 
-/************     remplir drop down par contact   ********* */
+/************     remplir 3- drop down par contact   ********* */
 this.servicecontact.getContact().subscribe((tmp)=>{
 this.contacts=tmp;
 })
@@ -97,8 +102,9 @@ this.contacts=tmp;
  addappointement() {
       var hospital = this.myForm.value as Hospital
         console.log('form : ',hospital)
-        // this.service.posthospital(hospital).subscribe(res=>{
-        //   this.loadData()
+        // var contact = this.myForm.value as Contact
+        // console.log('form : ',contact)
+        // this.servicecontact.addContact(contact).subscribe(res=>{
         //   console.log('res : ',res)
         // })
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { User } from '../models/user';
+import { Users } from '../models/Users';
 import { userservice } from '../services/user.service';
 
 @Component({
@@ -12,10 +12,10 @@ export class SigninComponent implements OnInit {
   myngForm = new FormGroup({
     firstname:new FormControl(''),
     lastname:new FormControl(''),
-    email:new FormControl(''),
-    number:new FormControl(''),
+    username:new FormControl(''),
+    contactId:new FormControl(''),
     password:new FormControl(''),
-    gender:new FormControl(''),
+    sexe:new FormControl(''),
     cin:new FormControl(''),
     date_naissence:new FormControl(''),
     address:new FormControl(''),
@@ -29,10 +29,10 @@ export class SigninComponent implements OnInit {
   }
   onSubmit() {
     console.warn(this.myngForm.value);
-     var patient = this.myngForm.value as User
-     this.service.AddUser(patient).subscribe(
+     var user = this.myngForm.value as Users
+     this.service.AddUser(user).subscribe(
        res=>{
-         console.log(res)
+         console.log("res:",res)
        }
      )
   }
