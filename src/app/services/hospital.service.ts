@@ -42,7 +42,7 @@ export class HospitalService {
       hospitalCategoryId: hospital.hospitalCategoryId,
       // contactId:Contact.id,
       identityNo:hospital.identityNo,
-      Contact:hospital.contact,
+      Contact:hospital.contact
     }
     return this.http.post<HospitalService>(this.url+"Hospital", body, { headers })
   }
