@@ -31,16 +31,14 @@ url="http://144.91.76.98:5002/api/Hospital";
 urlcontact="http://144.91.76.98:5002/api/Contact";
 
 
+
+ 
 myForm = new FormGroup({
   id:new FormControl(''),
   name : new FormControl(''),
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-
-  // contactId:new FormControl(''),
-  email:new FormControl(''),
-  phone1:new FormControl(''),
 })
   name: string;
 
@@ -104,12 +102,6 @@ this.contacts=tmp;
  addappointement() {
       var hospital = this.myForm.value as Hospital
         console.log('form : ',hospital)
-        console.log('form : ',this.contacts)
-        // hospital.contact.id=uuid.v4();
-        this.service.posthospital(hospital).subscribe(res=>{
-          this.loadData()
-          console.log('res : ',res)
-        })
         // var contact = this.myForm.value as Contact
         // console.log('form : ',contact)
         // this.servicecontact.addContact(contact).subscribe(res=>{
