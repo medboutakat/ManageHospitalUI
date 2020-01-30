@@ -27,13 +27,20 @@ export class GridComponent implements OnInit {
 url="http://144.91.76.98:5002/api/Hospital";
 
 
+
+ 
 myForm = new FormGroup({
   id:new FormControl(''),
   name : new FormControl(''),
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-  contactId:new FormControl('')
+  contactId:new FormControl(''),
+  contact: new FormGroup({ 
+    email : new FormControl(''),
+    phone1 : new FormControl(''),
+    phone2 : new FormControl(''),
+  })
 })
   name: string;
 
@@ -90,10 +97,10 @@ this.contacts=tmp;
  addappointement() {
       var hospital = this.myForm.value as Hospital
         console.log('form : ',hospital)
-        this.service.posthospital(hospital).subscribe(res=>{
-          this.loadData()
-          console.log('res : ',res)
-        })
+        // this.service.posthospital(hospital).subscribe(res=>{
+        //   this.loadData()
+        //   console.log('res : ',res)
+        // })
 }
 /******************selection******************************* */
 tes:string;

@@ -25,12 +25,16 @@
                    <option *ngFor="let item of cats" [value]="item.id">{{item.name}}</option>
                 </select>
                </div>
-
-               <div class="form-group">
+               <ng-container formArrayName="contact">
+               <div class="form-group"> 
+                  <input type="text" formControlName="email" placeholder="remark"> 
+               </div> 
+               </ng-container>
+               <!-- <div class="form-group">
                 <select class="form-group"   formControlName="contactId">
                    <option *ngFor="let itemcontact of contacts" [value]="itemcontact.id">{{itemcontact.email}}</option>
                 </select>
-               </div>
+               </div> -->
           </form>
       </div>
       <div class="modal-footer">
