@@ -7,9 +7,10 @@ export class Hospital {
   remark: string;
   history: string;
   hospitalCategoryId: string;
-  contactId: string;
+
   assutanceId: any;
   identityNo: any;
   contact :Contact;
+  contactId: string;
 }
 

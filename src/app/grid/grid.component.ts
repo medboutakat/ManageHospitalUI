@@ -41,12 +41,14 @@ myForm = new FormGroup({
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-  contact : new FormGroup({ 
+  contactId : new FormControl(''),
+  contact : new FormGroup({
+    id:new FormControl(''),
     email:new FormControl(''),
     phone1:new FormControl(''),
     phone2: new FormControl(''),
     whatsApp: new FormControl(''),
-    fax: new FormControl(''), 
+    fax: new FormControl(''),
     cityId : new FormControl(''),
     adress1:new FormControl(''),
     adress2: new FormControl(''),
@@ -114,13 +116,23 @@ this.contacts=tmp;
 
  /********************Post  ********************************* */
  addappointement() {
-      var hospital = this.myForm.value as Hospital
-        console.log('form : ',hospital)
-        // var contact = this.myForm.value as Contact
-        // console.log('form : ',contact)
-        // this.servicecontact.addContact(contact).subscribe(res=>{
-        //   console.log('res : ',res)
-        // })
+
+
+        var contact = this.myForm.controls['contact'].value as Contact
+        this.servicecontact.addContact(contact).subscribe(res=>
+          {
+            console.log('res contact: ',res)
+            this.myForm.controls['contactId'].setValue(res.id)
+            var newContact = this.myForm.controls['contact'].value as Contact
+            newContact.id = res.id
+            console.log('newContact = ',newContact)
+            // this.myForm.contains['contact'].setValue(res)
+            var hospital = this.myForm.value as Hospital
+            console.log('form hospital : ',hospital)
+            this.service.posthospital(hospital).subscribe(resault=>{
+            console.log('res hopital: ',resault)
+        })
+        })
 }
 /******************selection******************************* */
 tes:string;
