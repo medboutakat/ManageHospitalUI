@@ -120,8 +120,8 @@ this.contacts=tmp;
       console.log('form hospital : ',hospital)
       this.service.posthospital(hospital).subscribe(resault=>{
       console.log('res hopital: ',resault)
-
-        })
+      this.loadData()
+      })
 }
 /******************selection******************************* */
 tes:string;
