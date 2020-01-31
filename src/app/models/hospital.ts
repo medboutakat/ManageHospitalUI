@@ -1,4 +1,4 @@
-import { Contact } from './Contact';
+import { ContactModel } from './Contact';
 
 export class Hospital {
   id: string;
@@ -7,10 +7,10 @@ export class Hospital {
   remark: string;
   history: string;
   hospitalCategoryId: string;
-
   assutanceId: any;
   identityNo: any;
-  contact :Contact;
-  contactId: string;
+  contactModel :ContactModel;
+  // contactId: any;
+  // contactId: string;
 }
 

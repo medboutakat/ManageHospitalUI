@@ -24,7 +24,7 @@
                 </select>
                </div>
 
-               <div formGroupName="contact">
+               <div formGroupName="contactModel">
                 <input formControlName="phone1" placeholder="phone1">
                 <input formControlName="phone2" placeholder="phone2">
                 <input formControlName="email" placeholder="email">
@@ -36,7 +36,6 @@
                      <option *ngFor="let item of city" [value]="item.id">{{item.name}}</option>
                   </select>
                  </div>
-
               </div>
 
           </form>

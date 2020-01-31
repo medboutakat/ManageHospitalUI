@@ -11,7 +11,7 @@ import { HospitalService } from '../services/hospital.service';
 import { Hospital } from '../models/hospital';
 import { HospitalCategoryService } from '../services/hospitalCategory.service';
 import { HospitalCategory } from '../models/HospitalCategory';
-import { Contact } from '../models/Contact';
+import { ContactModel } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
 import { City } from '../models/city';
 import { CityService } from '../services/city.service';
@@ -36,14 +36,13 @@ urlcontact="http://144.91.76.98:5002/api/Contact";
 
 
 myForm = new FormGroup({
-  id:new FormControl(''),
   name : new FormControl(''),
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-  contactId : new FormControl(''),
-  contact : new FormGroup({
-    id:new FormControl(''),
+  // contactId : new FormControl(''),
+  contactModel : new FormGroup({
+    // id:new FormControl(''),
     email:new FormControl(''),
     phone1:new FormControl(''),
     phone2: new FormControl(''),
@@ -89,7 +88,7 @@ myForm = new FormGroup({
 
  listo:Hospital[];
  cats:HospitalCategory[];
- contacts:Contact[];
+ contacts:ContactModel[];
  city:City[];
 
 loadData(){
@@ -116,22 +115,14 @@ this.contacts=tmp;
 
  /********************Post  ********************************* */
  addappointement() {
+  var hospital = this.myForm.value as Hospital
 
 
-        var contact = this.myForm.controls['contact'].value as Contact
-        this.servicecontact.addContact(contact).subscribe(res=>
-          {
-            console.log('res contact: ',res)
-            this.myForm.controls['contactId'].setValue(res.id)
-            var newContact = this.myForm.controls['contact'].value as Contact
-            newContact.id = res.id
-            console.log('newContact = ',newContact)
-            // this.myForm.contains['contact'].setValue(res)
-            var hospital = this.myForm.value as Hospital
-            console.log('form hospital : ',hospital)
-            this.service.posthospital(hospital).subscribe(resault=>{
-            console.log('res hopital: ',resault)
-        })
+  
+      console.log('form hospital : ',hospital)
+      this.service.posthospital(hospital).subscribe(resault=>{
+      console.log('res hopital: ',resault)
+
         })
 }
 /******************selection******************************* */

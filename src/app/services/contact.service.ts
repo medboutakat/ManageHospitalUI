@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { ROOT_URL } from '../models/config';
-import { Contact } from '../models/Contact';
+import { ContactModel } from '../models/Contact';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class ContactService {
   constructor(private http:HttpClient) { }
 //Get
 getContact(){
-    return this.http.get<Contact[]>(this.url+"Contact");
+    return this.http.get<ContactModel[]>(this.url+"Contact");
   }
 
 
 //Post contact
-  addContact(contact:Contact){
+  addContact(contact:ContactModel){
     const headers = new HttpHeaders().set('content-type', 'application/json');
     var body = {
       id: contact.id,
@@ -33,7 +33,7 @@ getContact(){
       adress2: contact.adress2,
       other: contact.other
     }
-    return this.http.post<Contact>(this.url+"Contact", body, { headers })
+    return this.http.post<ContactModel>(this.url+"Contact", body, { headers })
   }
   /********************delete contact*****************/
   deleteContact(id){
@@ -41,7 +41,7 @@ getContact(){
   }
 
 /****************** ***Edit *******************/
-updateContact(contact:Contact) {
+updateContact(contact:ContactModel) {
   // console.log("pro id : ",appointement.id);
   const params = new HttpParams().set('id',contact.id+"");
   const headers = new HttpHeaders().set('content-type', 'application/json');
@@ -57,7 +57,7 @@ updateContact(contact:Contact) {
     adress2: contact.adress2,
     other: contact.other
 }
-  return this.http.put<Contact>(this.url+'Contact/' + contact.id, body, {headers,params})
+  return this.http.put<ContactModel>(this.url+'Contact/' + contact.id, body, {headers,params})
 }
 
 }

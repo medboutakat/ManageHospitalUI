@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { ROOT_URL } from '../models/config';
 import { Hospital } from '../models/hospital';
-import { Contact } from '../models/Contact';
+import { ContactModel } from '../models/Contact';
 
 import * as uuid from 'uuid';
 
@@ -42,7 +42,7 @@ export class HospitalService {
       hospitalCategoryId: hospital.hospitalCategoryId,
       // contactId:Contact.id,
       identityNo:hospital.identityNo,
-      Contact:hospital.contact
+      Contact:hospital.contactModel
     }
     return this.http.post<HospitalService>(this.url+"Hospital", body, { headers })
   }
@@ -57,7 +57,7 @@ Editappoinment(hospital:Hospital) {
   const params = new HttpParams().set('id',hospital.id);
   const headers = new HttpHeaders().set('content-type', 'application/json');
   var body = { id : hospital.id,
-  name: hospital.name, remark: hospital.remark,countryHealthId:hospital.countryHealthId,hospitalCategoryId:hospital.hospitalCategoryId,contactId:hospital.contactId
+  name: hospital.name, remark: hospital.remark,countryHealthId:hospital.countryHealthId,hospitalCategoryId:hospital.hospitalCategoryId
 }
 console.log("abdo id : ",hospital.id);
 
