@@ -41,6 +41,17 @@ myForm = new FormGroup({
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
+  contact : new FormGroup({ 
+    email:new FormControl(''),
+    phone1:new FormControl(''),
+    phone2: new FormControl(''),
+    whatsApp: new FormControl(''),
+    fax: new FormControl(''), 
+    cityId : new FormControl(''),
+    adress1:new FormControl(''),
+    adress2: new FormControl(''),
+    other:new FormControl(''),
+  })
 })
   name: string;
 
@@ -73,6 +84,7 @@ myForm = new FormGroup({
    this.api.sizeColumnsToFit();
    this.loadData();
  }
+
  listo:Hospital[];
  cats:HospitalCategory[];
  contacts:Contact[];
