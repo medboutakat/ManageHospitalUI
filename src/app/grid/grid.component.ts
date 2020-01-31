@@ -117,8 +117,6 @@ this.contacts=tmp;
  addappointement() {
   var hospital = this.myForm.value as Hospital
 
-
-  
       console.log('form hospital : ',hospital)
       this.service.posthospital(hospital).subscribe(resault=>{
       console.log('res hopital: ',resault)
