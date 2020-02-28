@@ -22,6 +22,7 @@ import { HospitalCategoryService } from './services/hospitalCategory.service';
 import { ContactService } from './services/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule, MatSlideToggle} from '@angular/material'
+import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
 
 
 
@@ -38,8 +39,8 @@ import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule
     SigninComponent,
     LoginComponent,
     ProfileComponent,
-    GridComponent
-
+    GridComponent,
+    HospitalCatComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GridComponent } from './grid/grid.component';
+import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
 
 
 
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:'signin', component: SigninComponent} ,
   {path:'login', component: LoginComponent} ,
   {path:'profile', component: ProfileComponent} ,
-  {path:'grid', component: GridComponent} ,
+  {path:'hospital', component: GridComponent} ,
+  {path:'hospitalcat', component: HospitalCatComponent} ,
+  {path:'grid', component: HospitalCatComponent} ,
   {path:'**',redirectTo:'/home'}
 ];
 
