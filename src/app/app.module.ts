@@ -23,6 +23,7 @@ import { ContactService } from './services/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule, MatSlideToggle} from '@angular/material'
 import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 
 
@@ -41,6 +42,7 @@ import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
     ProfileComponent,
     GridComponent,
     HospitalCatComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

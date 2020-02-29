@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GridComponent } from './grid/grid.component';
 import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'profile', component: ProfileComponent} ,
   {path:'hospital', component: GridComponent} ,
   {path:'hospitalcat', component: HospitalCatComponent} ,
+   {path:'doctor', component: DoctorComponent} ,
   {path:'grid', component: HospitalCatComponent} ,
   {path:'**',redirectTo:'/home'}
 ];
@@ -43,5 +45,6 @@ export const routingComponent=[
                               SigninComponent,
                               LoginComponent,
                               ProfileComponent,
+                              DoctorComponent,
                               GridComponent
                               ]
