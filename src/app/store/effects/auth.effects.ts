@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';  
 import { map, switchMap, catchError, tap ,filter} from 'rxjs/operators'; 
-import {  OperatorFunction, Operator ,Observable,  of } from 'rxjs'; 
-
+import { Observable,  of } from 'rxjs';  
 
 import { AuthService } from '../../services/auth.service';
 import {
@@ -11,8 +10,9 @@ import {
   LogIn, LogInSuccess, LogInFailure,
   SignUp, SignUpSuccess, SignUpFailure,
   LogOut,
-} from '../actions/auth.actions'; 
+} from '../actions/auth.actions';  
 import { User } from 'src/app/models/Users';
+
 @Injectable()
 export class AuthEffects {
 
@@ -25,35 +25,38 @@ export class AuthEffects {
   @Effect()
   Login: Observable<any> = this.actions
    .pipe(
-     ofType(AuthActionTypes.LOGIN)
-      map((action: LogIn) => action.payload),
+     ofType(AuthActionTypes.LOGIN),
+      map((action: LogIn) => action.payload), 
       switchMap(payload => {
           return this.authService.logIn(payload.username, payload.password)
       .pipe(
           map((user) => {
           console.log(user);
           return new LogInSuccess({token: user.token, email: payload.username});
-      }),
-      catchError((error) => {
-          return of(new LogInFailure({ error: error }));
-      }));
+          }),
+          catchError((error) => {
+              return of(new LogInFailure({ error: error }));
+          })
+      ); 
 }));
 
 
   @Effect()
   LogIn: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.LOGIN)
-    .map((action: LogIn) => action.payload)
-    .switchMap(payload => {
+    ofType(AuthActionTypes.LOGIN),
+     map((action: LogIn) => action.payload),
+     switchMap(payload => {
       return this.authService.logIn(payload.username, payload.password)
-        .map((user:User) => {
+      .pipe( 
+        map((user:User) => {
           return new LogInSuccess({token: user.token, username: payload.username});
+        }), 
+        catchError((error) => {
+          return of(new LogInFailure({ error: error }));
+          // return Observable.of(new LogInFailure({ error: error }));
         })
-        .catch((error) => {
-          return Observable.of(new LogInFailure({ error: error }));
-        });
-    }) 
-  );
+        );
+   }));
    
 
 
@@ -73,18 +76,21 @@ export class AuthEffects {
 
   @Effect()
   SignUp: Observable<any> = this.actions.pipe(
-     ofType(AuthActionTypes.SIGNUP)
-    .map((action: SignUp) => action.payload)
-    .switchMap(payload => {
+     ofType(AuthActionTypes.SIGNUP),
+     map((action: SignUp) => action.payload), 
+     
+     switchMap(payload => {
       return this.authService.signUp(payload.username, payload.password)
-        .map((user) => {
-          return new SignUpSuccess({token: user.token, username: payload.username});
-        })
-        .catch((error) => {
-          return Observable.of(new SignUpFailure({ error: error }));
-        });
-    });
-  )
+      .pipe(
+          map((user) => {
+          console.log(user);
+          return new SignUpSuccess({token: user.token, email: payload.username});
+      }),
+      catchError((error) => {
+          return of(new SignUpFailure({ error: error }));
+      })); 
+    }));
+ 
     
 
   @Effect({ dispatch: false })
@@ -111,10 +117,9 @@ export class AuthEffects {
 
   @Effect({ dispatch: false })
   GetStatus: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.GET_STATUS).switchMap(payload => {
+    ofType(AuthActionTypes.GET_STATUS),
+    switchMap(payload => {
       return this.authService.getStatus();
-    })
-
-  )
-   
+    }) 
+  ) 
 }

@@ -35,6 +35,9 @@ import { reducers } from './store/app.states';
 import {TokenInterceptor, ErrorInterceptor} from './services/token.interceptor';
 
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { LogInComponent } from './log-in/log-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
     ContactComponent,
     AboutComponent,
     SigninComponent, 
+    SignUpComponent, 
+    LogInComponent,
+    LandingComponent ,
     ProfileComponent,
     GridComponent,
     HospitalCatComponent,
