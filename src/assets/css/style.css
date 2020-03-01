@@ -1646,3 +1646,25 @@ button:focus {
     margin-top: 5px
   }
 }
+@media (max-width:767px) {
+  .profile-menu {
+    padding: 0 !important;
+    width: 60% !important;
+    text-align: center !important;
+    position: absolute !important ;
+    transform: translate(33%,10px) !important;
+  }
+  .profile-btn {
+    width: 100% !important;
+  }
+}
+.dropdown-item:hover {
+  background-color:#007aff;
+  color:white;
+}
+.profile-btn-active {
+  background-color:#053669;
+  color:white;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+

@@ -1,0 +1,111 @@
+<!-- ******************** add ***********************  -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add new Hospital</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="myForm">
+          
+            <div class="form-group">
+              <input type="text" formControlName="name" placeholder="name">
+              </div>
+
+              <div class="form-group">
+                <input type="text" formControlName="remark" placeholder="remark">
+              </div>
+ 
+              
+
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-success" (click)="addappointement()"  data-dismiss="modal">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="form-group">
+      <button class="btn btn-success mr-10" data-toggle="modal" data-target="#exampleModalCenter">Add</button>
+      <button class="btn btn-danger mr-10"  data-toggle="modal" data-target="#exampleModalCenter2">remove</button>
+      <button class="btn btn-warning mr-10" data-toggle="modal" (click)="remplir()" data-target="#exampleModalCenter3">edit</button>
+    </div>
+</div>
+
+
+    <ag-grid-angular
+    style="width: 1000px; height:900px; margin:auto;margin-top:100px;"
+    class="ag-theme-balham"
+    [rowData]="cats"
+    [columnDefs]="columnDefs"
+    (gridReady)="onGridReady($event)"
+    (selectionChanged)="onSelectionChanged($event)"
+    >
+    </ag-grid-angular>
+    <!------------------------------------Delete()--------------------------------------------->
+    <div *ngFor="let item of StObjet" class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">are you sure you want to delete???</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div  class="modal-body">
+            <p>{{item.name}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button (click)="delete(item.id) " class="btn btn-danger" aria-label="Close">delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!------------------------------------Update()--------------------------------------------->
+    <div *ngFor="let item of StObjet" class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Update Hospital</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div  class="modal-body">
+            <form [formGroup]="myForm">
+              
+              <div class="form-group">
+                <input type="hidden" formControlName="id" placeholder="id">
+                </div>
+              <div class="form-group">
+                <input type="text" formControlName="name" placeholder="name">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" formControlName="remark" placeholder="remark">
+                </div>
+ 
+               
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-danger" (click)="Editappoinment()">update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+

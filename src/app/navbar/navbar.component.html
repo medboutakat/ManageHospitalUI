@@ -1,62 +1,71 @@
 <!-- nav -->
 <nav id="nav" class="navbar col-md navbar-expand-md bg-primary navbar-dark">
-    <a routerLink="/home" class="navbar-brand">Medical</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#cnav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="cnav" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                    <a routerLink="/home" routerLinkActive="active" class="nav-link"><i class="fa fa-home icon" aria-hidden="true"></i>Home </a>
-            </li>
-            <li class="nav-item" >
-                    <a routerLink="/services" routerLinkActive="active" id="Services" class="nav-link"><i class="fa fa-list-alt icon"></i>Services</a>
-            </li>
-            <li class="nav-item">
-                    <a routerLink="/blog" routerLinkActive="active" class="nav-link"><i class="lnr lnr-earth icon"></i>Blog</a>
-            </li>
-            <li class="nav-item">
-                    <a routerLink="/contact" routerLinkActive="active" class="nav-link"><i class="lnr lnr-phone-handset icon"></i>Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a routerLink="/about" routerLinkActive="active" class="nav-link"><i class="fa fa-info-circle icon"></i>About Us</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto pas-login">
+  <a routerLink="/home" class="navbar-brand">Medical</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#cnav">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="cnav" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+                  <a routerLink="/home" routerLinkActive="active" class="nav-link"><i class="fa fa-home icon" aria-hidden="true"></i>Home </a>
+          </li>
+          <li class="nav-item" >
+                  <a routerLink="/services" routerLinkActive="active" id="Services" class="nav-link"><i class="fa fa-list-alt icon"></i>Services</a>
+          </li>
+          <li class="nav-item">
+                  <a routerLink="/blog" routerLinkActive="active" class="nav-link"><i class="lnr lnr-earth icon"></i>Blog</a>
+          </li>
+          <li class="nav-item">
+                  <a routerLink="/contact" routerLinkActive="active" class="nav-link"><i class="lnr lnr-phone-handset icon"></i>Contact Us</a>
+          </li>
+          <li class="nav-item">
+              <a routerLink="/about" routerLinkActive="active" class="nav-link"><i class="fa fa-info-circle icon"></i>About Us</a>
+          </li>
+      </ul>
 
 
-            <li class="nav-item nav-cnx" style="margin: 5px 10px;">
-                <a routerLink="/login" routerLinkActive="btn-active" class="btn btn-outline-light nav-btn" role="button">Login</a>
-            </li>
-            <li class="nav-item nav-cnx" style="margin: 5px 10px;">
-                <a routerLink="/signin" routerLinkActive="btn-active" class="btn btn-outline-light nav-btn" role="button">Sign in</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav en-login" style="list-style: none; float: right !important;">
-            <li class="nav-item dropdown ml-auto">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    hihouka98@gmail.com
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="padding: 0 !important;">
 
-                        <div class="user-profile-container" style="border: none !important;box-shadow: none !important;">
-                        <div class="top-div"><img id="user-profile-picture" src="assets/img/user.png" style="margin-left: 0 !important;"></div>
-                        <div class="content-div">
-                        <div class="name-and-information">
-                        <h5>Oualid Hihouka</h5>
-                        <h6>hihouka98@gmail.com</h6>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
+      <!-- login -->
+      <ul class="navbar-nav ml-auto pas-login" style="display: none;"> <!--style="display: none;"-->
+          <li class="nav-item nav-cnx" style="margin: 5px 10px;">
+              <a routerLink="/login" routerLinkActive="btn-active" class="btn btn-outline-light nav-btn" role="button">Login</a>
+          </li>
+          <li class="nav-item nav-cnx" style="margin: 5px 10px;">
+              <a routerLink="/signin" routerLinkActive="btn-active" class="btn btn-outline-light nav-btn" role="button">Sign in</a>
+          </li>
+      </ul>
 
-                  <a class="dropdown-item" href="/profile" routerLinkActive="active">Profil</a>
-                  <a routerLink="/grid" routerLinkActive="active" id="option" class="dropdown-item">Option</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item float-right" href="#"><i class="fa fa-sign-out" style="font-style:normal"></i>Log out</a>
-                </div>
-              </li>
-        </ul>
-    </div>
+      <!-- on login -->
+      <ul style="list-style: none; float: right !important;" class="navbar-nav ml-auto en-login profile-btn" ><!--display: none;-->
+            <li class="nav-item dropdown ml-auto profile-btn">
+              <a class="nav-link dropdown-toggle profile-btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  hihouka98@gmail.com
+              </a>
+              <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown" style="padding: 0 !important;width:100%">
+
+                      <div class="user-profile-container" style="border: none !important;box-shadow: none !important;">
+                      <div class="top-div"><img id="user-profile-picture" src="assets/img/c1.jpg" style="margin-left: 0 !important;"></div>
+                      <div class="content-div">
+                      <div class="name-and-information">
+                      <h5>Oualid Hihouka</h5>
+                      <h6>hihouka98@gmail.com</h6>
+                      </div>
+                      </div>
+                      </div>
+                      <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" routerLink="/profile" routerLinkActive="profile-btn-active">Profil</a>
+                <div class="dropdown-divider"></div>
+                <a routerLink="/hospital" routerLinkActive="profile-btn-active" id="option" class="dropdown-item">Hospital</a>
+                <a routerLink="/hospitalcat" routerLinkActive="profile-btn-active" id="option" class="dropdown-item">Hospital category</a>
+                <a routerLink="/doctor" routerLinkActive="profile-btn-active" id="option" class="dropdown-item">Docters</a>
+                <a routerLink="/grid" routerLinkActive="profile-btn-active" id="option" class="dropdown-item">Docter category</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item float-right pb-10" href="#"><i class="fa fa-sign-out" style="font-style:normal"></i>Log out</a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+      </ul>
+  </div>
 </nav>
 <!-- end nav  -->

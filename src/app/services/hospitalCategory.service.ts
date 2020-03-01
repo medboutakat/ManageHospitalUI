@@ -29,11 +29,11 @@ export class HospitalCategoryService {
       name: obj.name,
       remark: obj.remark
     }
-    return this.http.post<HospitalCategory>(this.url+"Hospital", body, { headers })
+    return this.http.post<HospitalCategory>(this.url+"HospitalCategory", body, { headers })
   }
   /********************delete *****************/
   deleteHospitalCategorie(id){
-    return this.http.delete(this.url+'Hospital/'+id);
+    return this.http.delete(this.url+'HospitalCategory/'+id);
   }
 
 /****************** ***Edit *******************/
@@ -44,7 +44,7 @@ updateHospitalCategorie(obj:HospitalCategory) {
   var body = {
   name: obj.name, remark: obj.remark
 }
-  return this.http.put<HospitalCategory>(this.url+'Hospital/' + obj.id, body, {headers,params})
+  return this.http.put<HospitalCategory>(this.url+'HospitalCategory/' + obj.id, body, {headers,params})
 }
 
 }

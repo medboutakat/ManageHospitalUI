@@ -56,7 +56,8 @@ export class AppointementComponent implements OnInit {
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
-        map(state => state ? this._filterStates(state) : this.citys.slice())
+        map(state => state ? this._filterStates(state) 
+        : this.citys.slice())
       );
       console.log("filtersate : ",this.filteredStates)
   }

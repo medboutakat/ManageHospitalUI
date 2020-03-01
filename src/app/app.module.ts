@@ -21,6 +21,8 @@ import { HospitalCategoryService } from './services/hospitalCategory.service';
 import { ContactService } from './services/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule, MatSlideToggle} from '@angular/material'
+import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 
 import { RouterModule, CanActivate } from '@angular/router'; 
@@ -46,8 +48,9 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
     AboutComponent,
     SigninComponent, 
     ProfileComponent,
-    GridComponent
-
+    GridComponent,
+    HospitalCatComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

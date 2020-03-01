@@ -7,11 +7,13 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SigninComponent } from './signin/signin.component';
 import { ProfileComponent } from './profile/profile.component';
-import { GridComponent } from './grid/grid.component';
+import { GridComponent } from './grid/grid.component'; 
 import { StatusComponent } from './status/status.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { LandingComponent } from './landing/landing.component';
+import { LandingComponent } from './landing/landing.component'; 
+import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
+import { DoctorComponent } from './doctor/doctor.component'; 
 
 
 
@@ -22,14 +24,17 @@ const routes: Routes = [
   {path:'contact', component: ContactComponent} ,
   {path:'about', component: AboutComponent} ,
   {path:'signin', component: SigninComponent} , 
-  {path:'profile', component: ProfileComponent} ,
+  {path:'profile', component: ProfileComponent} , 
   {path:'grid', component: GridComponent} ,
   {path:'**',redirectTo:'/home'},
   { path: 'log-in', component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
   // { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
-  { path: '', component: LandingComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '', component: LandingComponent }, 
+  {path:'hospital', component: GridComponent} ,
+  {path:'hospitalcat', component: HospitalCatComponent} ,
+   {path:'doctor', component: DoctorComponent} ,
+  {path:'grid', component: HospitalCatComponent} 
 ];
 
 
@@ -47,5 +52,6 @@ export const routingComponent=[
                               SigninComponent,
                               LogInComponent,
                               ProfileComponent,
+                              DoctorComponent,
                               GridComponent
                               ]
