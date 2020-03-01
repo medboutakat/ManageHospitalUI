@@ -12,7 +12,6 @@ import * as uuid from 'uuid';
 })
 export class HospitalService {
 
-
   url = ROOT_URL;
   id: any;
   name: any;
@@ -21,7 +20,8 @@ export class HospitalService {
   hospitalCategoryId: any;
   contactId: any;
   constructor(private http:HttpClient) { }
-//Get
+
+  //Get
   gethopital(){
     return this.http.get<Hospital[]>(this.url+"Hospital");
   }

@@ -9,8 +9,7 @@ import { AppointementComponent } from './appointement/appointement.component';
 import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { SigninComponent } from './signin/signin.component';
-import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component'; 
 import { ProfileComponent } from './profile/profile.component';
 import { userservice } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +23,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule, MatSlideToggle} from '@angular/material'
 
 
+import { RouterModule, CanActivate } from '@angular/router'; 
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { HTTP_INTERCEPTORS } from '@angular/common/http'; 
+import { AuthService } from './services/auth.service';
+import { AuthEffects } from './store/effects/auth.effects';
+import { reducers } from './store/app.states';
+import {TokenInterceptor, ErrorInterceptor} from './services/token.interceptor';
+
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -35,8 +44,7 @@ import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule
     BlogComponent,
     ContactComponent,
     AboutComponent,
-    SigninComponent,
-    LoginComponent,
+    SigninComponent, 
     ProfileComponent,
     GridComponent
 
@@ -50,10 +58,24 @@ import {MatInputModule,MatFormFieldModule,MatButtonModule, MatAutocompleteModule
     AgGridModule.withComponents([]),
     BrowserAnimationsModule,
     MatAutocompleteModule,
-    MatInputModule,MatFormFieldModule,MatButtonModule
+    MatInputModule,MatFormFieldModule,MatButtonModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [
-    userservice,HospitalCategoryService,ContactService
+    userservice,HospitalCategoryService,ContactService,
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -6,9 +6,12 @@ import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SigninComponent } from './signin/signin.component';
-import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GridComponent } from './grid/grid.component';
+import { StatusComponent } from './status/status.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 
@@ -18,11 +21,15 @@ const routes: Routes = [
   {path:'blog', component: BlogComponent} ,
   {path:'contact', component: ContactComponent} ,
   {path:'about', component: AboutComponent} ,
-  {path:'signin', component: SigninComponent} ,
-  {path:'login', component: LoginComponent} ,
+  {path:'signin', component: SigninComponent} , 
   {path:'profile', component: ProfileComponent} ,
   {path:'grid', component: GridComponent} ,
-  {path:'**',redirectTo:'/home'}
+  {path:'**',redirectTo:'/home'},
+  { path: 'log-in', component: LogInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  // { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
+  { path: '', component: LandingComponent },
+  { path: '**', redirectTo: '/home' }
 ];
 
 
@@ -38,7 +45,7 @@ export const routingComponent=[
                               ContactComponent,
                               AboutComponent,
                               SigninComponent,
-                              LoginComponent,
+                              LogInComponent,
                               ProfileComponent,
                               GridComponent
                               ]

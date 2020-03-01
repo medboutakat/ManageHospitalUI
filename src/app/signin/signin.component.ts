@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Users } from '../models/Users';
+import { User } from '../models/Users';
 import { userservice } from '../services/user.service';
 
 @Component({
@@ -29,8 +29,8 @@ export class SigninComponent implements OnInit {
   }
   onSubmit() {
     console.warn(this.myngForm.value);
-     var user = this.myngForm.value as Users
-     this.service.AddUser(user).subscribe(
+     var user = this.myngForm.value as User
+     this.service.signUp(user).subscribe(
        res=>{
          console.log("res:",res)
        }
