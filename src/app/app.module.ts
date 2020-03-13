@@ -38,6 +38,7 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LandingComponent } from './landing/landing.component';
+import { ContactControlComponent } from './contact-control/contact-control.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { LandingComponent } from './landing/landing.component';
     ProfileComponent,
     GridComponent,
     HospitalCatComponent,
-    DoctorComponent
+    DoctorComponent,
+    ContactControlComponent
   ],
   imports: [
     BrowserModule,
