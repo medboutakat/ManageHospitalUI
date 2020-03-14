@@ -24,11 +24,11 @@ import * as uuid from 'uuid';
 })
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css']
+  selector: 'app-hospital',
+  templateUrl: './hospital.component.html',
+  styleUrls: ['./hospital.component.css']
 })
-export class GridComponent implements OnInit {
+export class HospitalComponent implements OnInit {
 url="http://144.91.76.98:5002/api/Hospital";
 urlcontact="http://144.91.76.98:5002/api/Contact";
 

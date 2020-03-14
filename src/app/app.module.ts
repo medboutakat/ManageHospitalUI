@@ -13,8 +13,7 @@ import { SigninComponent } from './signin/signin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { userservice } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GridComponent } from './grid/grid.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { AgGridModule } from 'ag-grid-angular';
 import { HospitalCategoryService } from './services/hospitalCategory.service';
@@ -39,6 +38,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactControlComponent } from './contact-control/contact-control.component';
+import { HospitalComponent } from './hospital/hospital.component';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { ContactControlComponent } from './contact-control/contact-control.compo
     LogInComponent,
     LandingComponent ,
     ProfileComponent,
-    GridComponent,
+    HospitalComponent,
     HospitalCatComponent,
     DoctorComponent,
     ContactControlComponent
