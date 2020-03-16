@@ -14,7 +14,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HospitalCatComponent } from './hospitalCat/hospitalCat.component';
 import { DoctorComponent } from './doctor/doctor.component'; 
 import { HospitalComponent } from './hospital/hospital.component';
-
+import { DoctorCatComponent } from './doctorCat/doctorCat.component';
 
 
 const routes: Routes = [
@@ -32,8 +32,8 @@ const routes: Routes = [
   // { path: '', component: LandingComponent }, 
   {path:'hospital', component: HospitalComponent} ,
   {path:'hospitalcat', component: HospitalCatComponent} ,
-   {path:'doctor', component: DoctorComponent} ,
-  {path:'grid', component: HospitalCatComponent} 
+   {path:'doctor', component: DoctorComponent} , 
+   {path:'doctorCat', component: DoctorCatComponent} , 
 ];
 
 

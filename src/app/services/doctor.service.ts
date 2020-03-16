@@ -14,7 +14,7 @@ export class DoctorService {
   url = ROOT_URL;
   constructor(private http:HttpClient) { }
 
-  get(){
+  getAll(){
     return this.http.get<Doctor[]>(this.url+"Doctor");
   }
   getById(id:string){

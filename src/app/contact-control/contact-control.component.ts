@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactControlComponent implements OnInit {
 
-  constructor() { }
+
+
+ cities:any;
+
+
+  constructor() { 
+  
+
+  }
 
   ngOnInit() {
   }

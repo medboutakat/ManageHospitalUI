@@ -23,6 +23,11 @@
               <div class="form-group">
                 <input type="text" formControlName="sexe" placeholder="sexe">
              </div> 
+             <div class="form-group">
+              <select class="form-group"    formControlName="doctorCategoryId">
+                 <option *ngFor="let item of cats" [value]="item.id">{{item.name}}</option>
+              </select>
+             </div>
           </form>
       </div>
       <div class="modal-footer">
@@ -46,7 +51,7 @@
     <ag-grid-angular
     style="width: 1000px; height:900px; margin:auto;margin-top:100px;"
     class="ag-theme-balham"
-    [rowData]="cats"
+    [rowData]="doctors"
     [columnDefs]="columnDefs"
     (gridReady)="onGridReady($event)"
     (selectionChanged)="onSelectionChanged($event)"
@@ -63,7 +68,7 @@
             </button>
           </div>
           <div  class="modal-body">
-            <p>{{StObjet.firstName}</p>
+            <p>{{StObjet.firstName}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -100,7 +105,11 @@
                 <div class="form-group">
                   <input type="text" formControlName="sexe" placeholder="sexe">
                </div> 
- 
+               <div class="form-group">
+                <select class="form-group"    formControlName="doctorCategoryId">
+                   <option *ngFor="let item of cats" [value]="item.id">{{item.name}}</option>
+                </select>
+               </div>
                
 
             </form>

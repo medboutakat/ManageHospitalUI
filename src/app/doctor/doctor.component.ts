@@ -18,6 +18,8 @@ import { CityService } from '../services/city.service';
 import * as uuid from 'uuid';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor'; 
+import { DoctorCategory } from '../models/DoctorCategory';
+import { DoctorCategoryService } from '../services/doctorCategory.service';
 
 
 @Injectable({
@@ -34,20 +36,25 @@ url="http://144.91.76.98:5002/api/Hospital";
 urlcontact="http://144.91.76.98:5002/api/Contact";
 
 myForm = new FormGroup({
+  name : new FormControl(''),
   id : new FormControl(''),
   firstName: new FormControl(''),
   lastName:new FormControl(''),
-  sexe:new FormControl('')
+  sexe:new FormControl(''),
+  doctorCategoryId:new FormControl('')
 })
 
   name: string;
 
   constructor(  
-    private serviceCate:DoctorService,
+    private serviceDoctor:DoctorService,
+    private serviceCate:DoctorCategoryService,
     private http:HttpClient
     ) { }
 
   ngOnInit() {
+ 
+  this.loadData();
   }
   columnDefs = [ 
     {headerName: 'firstName', field: 'firstName',sortable:true,checkboxSelection: true ,filter:true }, 
@@ -65,16 +72,18 @@ myForm = new FormGroup({
    this.api.sizeColumnsToFit();
    this.loadData();
  }
- 
- cats:Doctor[];
+ doctors:Doctor[];
+ cats:DoctorCategory[];
  contacts:ContactModel[];
  city:City[];
 
 loadData(){
-this.serviceCate.get().subscribe((tmp)=>{
+this.serviceCate.getAll().subscribe((tmp)=>{
   this.cats=tmp;
 })
- 
+this.serviceDoctor.getAll().subscribe((tmp)=>{
+  this.doctors=tmp;
+})
 
 }
 
@@ -83,7 +92,7 @@ this.serviceCate.get().subscribe((tmp)=>{
   var doctor = this.myForm.value as Doctor
       doctor.id=  uuid();
       console.log('form doctor : ',doctor)
-      this.serviceCate.add(doctor).subscribe(resault=>{
+      this.serviceDoctor.add(doctor).subscribe(resault=>{
       console.log('res doctor: ',resault)
       this.loadData()
       })
@@ -105,7 +114,7 @@ tes:string;
 /*********************************Delete ************************************** */
 
 delete(id){
-  this.serviceCate.delete(id).subscribe(res=>{
+  this.serviceDoctor.delete(id).subscribe(res=>{
     this.loadData();
     alert('suppression bien fait');
   })
@@ -117,7 +126,7 @@ Editappoinment(){
   var doctor = this.myForm.value as Doctor
   console.log("doctor : ",doctor);
 
-  this.serviceCate.Edit(doctor).subscribe(res => {
+  this.serviceDoctor.Edit(doctor).subscribe(res => {
     this.loadData()
     alert("doctor modified successfully");
   });
@@ -127,7 +136,7 @@ Editappoinment(){
 
 remplir(){
   if(this.StObjet!=null){
- this.serviceCate.getById(this.StObjet.id).subscribe(res => {
+ this.serviceDoctor.getById(this.StObjet.id).subscribe(res => {
    
     this.myForm.setValue(
       {
@@ -138,9 +147,7 @@ remplir(){
         sexe:res.sexe
       }); 
   });
-  }
- 
- 
+  } 
 }
 
 }

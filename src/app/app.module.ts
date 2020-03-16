@@ -38,8 +38,9 @@ import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactControlComponent } from './contact-control/contact-control.component';
-import { HospitalComponent } from './hospital/hospital.component';
-
+import { HospitalComponent } from './hospital/hospital.component'; 
+import { DoctorCatComponent } from './doctorCat/doctorCat.component';
+import { DoctorCategoryService } from './services/doctorCategory.service';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { HospitalComponent } from './hospital/hospital.component';
     HospitalComponent,
     HospitalCatComponent,
     DoctorComponent,
+    DoctorCatComponent,
     ContactControlComponent
   ],
   imports: [
@@ -74,7 +76,7 @@ import { HospitalComponent } from './hospital/hospital.component';
     EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [
-    userservice,HospitalCategoryService,ContactService,
+    userservice,HospitalCategoryService,DoctorCategoryService,ContactService,
     AuthService,
     // AuthGuard,
     // {
