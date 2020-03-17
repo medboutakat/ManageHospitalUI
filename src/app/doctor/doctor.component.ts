@@ -17,9 +17,7 @@ import { City } from '../models/city';
 import { CityService } from '../services/city.service';
 import * as uuid from 'uuid';
 import { DoctorService } from '../services/doctor.service';
-import { Doctor } from '../models/doctor'; 
-import { DoctorCategory } from '../models/DoctorCategory';
-import { DoctorCategoryService } from '../services/doctorCategory.service';
+import { Doctor } from '../models/doctor';  
 
 
 @Injectable({
@@ -31,9 +29,7 @@ import { DoctorCategoryService } from '../services/doctorCategory.service';
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit {
-url="http://144.91.76.98:5002/api/Hospital";
-urlcontact="http://144.91.76.98:5002/api/Contact";
+export class DoctorComponent implements OnInit { 
 
 myForm = new FormGroup({
   name : new FormControl(''),
