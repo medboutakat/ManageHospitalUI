@@ -18,6 +18,8 @@ import { CityService } from '../services/city.service';
 import * as uuid from 'uuid';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor';  
+import { DoctorCategory } from '../models/DoctorCategory';
+import { DoctorCategoryService } from '../services/doctorCategory.service';
 
 
 @Injectable({
@@ -68,6 +70,7 @@ myForm = new FormGroup({
    this.api.sizeColumnsToFit();
    this.loadData();
  }
+ 
  doctors:Doctor[];
  cats:DoctorCategory[];
  contacts:ContactModel[];
