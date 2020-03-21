@@ -59,7 +59,6 @@ this.serviceCate.getAll().subscribe((tmp)=>{
  /********************Post  ********************************* */
  addappointement() {
   var doctorCat = this.myForm.value as DoctorCategory
-
       console.log('form doctor : ',doctorCat)
       this.serviceCate.add(doctorCat).subscribe(resault=>{
       console.log('res doctor: ',resault)
@@ -109,8 +108,7 @@ Editappoinment(){
  
 remplir(){
   if(this.StObjet!=null){
- this.serviceCate.getById(this.StObjet.id).subscribe(res => {
-   
+ this.serviceCate.getById(this.StObjet.id).subscribe(res => {   
     this.myForm.setValue(
       {
         id :res.id ,
