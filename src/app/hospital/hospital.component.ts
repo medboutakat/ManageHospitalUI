@@ -29,31 +29,18 @@ import * as uuid from 'uuid';
   styleUrls: ['./hospital.component.css']
 })
 export class HospitalComponent implements OnInit {
-url="http://144.91.76.98:5002/api/Hospital";
-urlcontact="http://144.91.76.98:5002/api/Contact";
-
-
-
 
 myForm = new FormGroup({
   name : new FormControl(''),
   countryHealthId : new FormControl(''),
   remark:new FormControl(''),
   hospitalCategoryId : new FormControl(''),
-  // contactId : new FormControl(''),
-  contactModel : new FormGroup({
-    // id:new FormControl(''),
-    email:new FormControl(''),
-    phone1:new FormControl(''),
-    phone2: new FormControl(''),
-    whatsApp: new FormControl(''),
-    fax: new FormControl(''),
-    cityId : new FormControl(''),
-    adress1:new FormControl(''),
-    adress2: new FormControl(''),
-    other:new FormControl(''),
-  })
+  contactId : new FormControl(''), 
+  ///
 })
+
+
+
   name: string;
 
   constructor(
@@ -124,14 +111,14 @@ this.contacts=tmp;
       })
 }
 /******************selection******************************* */
-tes:string;
-    StObjet:HospitalService[];
+    tes:string;
+    StObjet:Hospital;
     onSelectionChanged(event) {
       if (this.api.getSelectedRows().length == 0) {
-
+        this.StObjet=null;
 
       } else {
-        this.StObjet=this.api.getSelectedRows();
+        this.StObjet=this.api.getSelectedRows()[0] as Hospital;
       }
 
     }
@@ -160,7 +147,14 @@ Editappoinment(){
 /*****************************remlir input ***************** */
 
 remplir(){
-  this.myForm.setValue({id :this.StObjet[0].id ,name:this.StObjet[0].name,countryHealthId:this.StObjet[0].countryHealthId,remark:this.StObjet[0].remark,hospitalCategoryId:this.StObjet[0].hospitalCategoryId,contactId:this.StObjet[0].contactId});
+  this.myForm.setValue(
+    {
+      id :this.StObjet.id ,
+      name:this.StObjet.name,
+      countryHealthId:this.StObjet.countryHealthId,
+      remark:this.StObjet.remark,
+      hospitalCategoryId:this.StObjet.hospitalCategoryId
+  });
 }
 
 }
